@@ -73,13 +73,20 @@ function game() {
     }
 
     if(playerCount > computerCount) {
-        return `You won! The score is -
-                You: ${playerCount}
-                Computer: ${computerCount}`;
+        alert(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
     } else {
-        return `You lost! The score is - You: ${playerCount} / Computer: ${computerCount}`;
+        alert(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
     }
+
+    if (confirm("Play again?")) {
+    alert("Yay!");
+    playerCount = 0;
+    computerCount = 0;
+    game();
+} else {
+    alert("K, bye!");
+}
+
 }
 
 console.log(game());
-

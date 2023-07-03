@@ -1,7 +1,6 @@
 
 let playerCount = 0;
 let computerCount = 0;
-let gameCount = 0;
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
@@ -11,23 +10,23 @@ function getComputerChoice() {
             break;
         case 2:
             return "Paper!";
-            break;        
+            break;
         case 3:
             return "Scissors!";
             break;
         default:
             return "I don't feel like playing :/"
-        }       
+        }
 }
 
 function playRound(playerSelection, computerSelection) {
     let result = "";
     playerSelection = playerSelection.toLowerCase();
-    
+
     if(playerSelection === "rock") {
 
         if(computerSelection === "Rock!") {
-            result = "It's a tie!" 
+            result = "It's a tie!"
         } else if(computerSelection === "Paper!") {
             computerCount++;
             result = "You lose! Paper beats Rock."
@@ -35,11 +34,11 @@ function playRound(playerSelection, computerSelection) {
             playerCount++;
             result = "You win! Rock beats Scissors!";
         }
-      
+
     } else if(playerSelection === "paper") {
 
         if(computerSelection === "Paper!") {
-            result = "It's a tie!" 
+            result = "It's a tie!"
         } else if(computerSelection === "Scissors!") {
             computerCount++;
             result = "You lose! Scissors beat Paper."
@@ -51,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
     } else if(playerSelection === "scissors"){
 
         if(computerSelection === "Scissors!") {
-            result = "It's a tie!" 
+            result = "It's a tie!"
         } else if(computerSelection === "Rock!") {
             computerCount++;
             result = "You lose! Rock beats Scissors."
@@ -61,18 +60,16 @@ function playRound(playerSelection, computerSelection) {
         }
 
     } else {
-            gameCount--;
             result = "Cute, but please use only rock, paper or scissors options";
-
     }
+
     alert(result);
 }
 
 function game() {
-    
-    while(gameCount < 5) {
-     playRound(prompt("Choose your fighter!", "Scissors"), getComputerChoice());   
-     gameCount++;
+
+    while(playerCount < 5 && computerCount < 5) {
+     playRound(prompt("Choose your fighter!", "Scissors"), getComputerChoice());
     }
 
     if(playerCount > computerCount) {
@@ -85,3 +82,4 @@ function game() {
 }
 
 console.log(game());
+

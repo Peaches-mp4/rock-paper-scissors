@@ -1,20 +1,22 @@
 
 let playerCount = 0;
 let computerCount = 0;
-let playerSelection = 0;
+let playerSelection = "";
 
 //Get player selection from buttons
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
-    button.addEventListener("click", getPlayerSelection);
+    button.addEventListener("click", getPlayerChoice);
 });
 
-function getPlayerSelection(e) {
+function getPlayerChoice(e) {
   playerSelection = e.target.id; 
+  alert(playerSelection)
   }
 
-//get computer choice  
+//Get computer choice  
+
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
     switch(randomChoice) {
@@ -32,12 +34,11 @@ function getComputerChoice() {
         }
 }
 
-
+//The function to play one round of the game
 
 function playRound(playerSelection, computerSelection) {
     let result = "";
     
-
     if(playerSelection === "rock") {
 
         if(computerSelection === "Rock!") {
@@ -73,36 +74,34 @@ function playRound(playerSelection, computerSelection) {
             playerCount++;
             result = "You win! Scissors beat Paper!";
         }
-
-    } else {
-            result = "Cute, but please use only rock, paper or scissors options";
     }
 
-    alert(result);
+    console.log(result);
 }
 
-// function game() {
+function game() {
 
-//     while(playerCount < 5 && computerCount < 5) {
-//      playRound(prompt("Choose your fighter!", "Scissors"), getComputerChoice());
-//     }
+    //  while(playerCount < 5 && computerCount < 5) {
+     playRound(getPlayerChoice, getComputerChoice());
+    //}
 
-//     if(playerCount > computerCount) {
-//         alert(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
-//     } else {
-//         alert(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
-//     }
+    // if(playerCount > computerCount) {
+    //     console.log(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
+    // } else {
+    //     console.log(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
 
-//     if (confirm("Play again?")) {
-//     alert("Yay!");
-//     playerCount = 0;
-//     computerCount = 0;
-//     game();
-// } else {
-//     alert("K, bye!");
-//   }
-// }
+        
+    // }
+
+    // if (confirm("Play again?")) {
+    // alert("Yay!");
+    // playerCount = 0;
+    // computerCount = 0;
+    // game();
+    // } else {
+    // alert("K, bye!");
+    // }
+}
 
 
-
-//console.log(game());
+console.log(game());

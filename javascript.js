@@ -1,7 +1,20 @@
 
 let playerCount = 0;
 let computerCount = 0;
+let playerSelection = 0;
 
+//Get player selection from buttons
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", getPlayerSelection);
+});
+
+function getPlayerSelection(e) {
+  playerSelection = e.target.id; 
+  }
+
+//get computer choice  
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
     switch(randomChoice) {
@@ -19,9 +32,11 @@ function getComputerChoice() {
         }
 }
 
+
+
 function playRound(playerSelection, computerSelection) {
     let result = "";
-    playerSelection = playerSelection.toLowerCase();
+    
 
     if(playerSelection === "rock") {
 
@@ -66,27 +81,28 @@ function playRound(playerSelection, computerSelection) {
     alert(result);
 }
 
-function game() {
+// function game() {
 
-    while(playerCount < 5 && computerCount < 5) {
-     playRound(prompt("Choose your fighter!", "Scissors"), getComputerChoice());
-    }
+//     while(playerCount < 5 && computerCount < 5) {
+//      playRound(prompt("Choose your fighter!", "Scissors"), getComputerChoice());
+//     }
 
-    if(playerCount > computerCount) {
-        alert(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
-    } else {
-        alert(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
-    }
+//     if(playerCount > computerCount) {
+//         alert(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
+//     } else {
+//         alert(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
+//     }
 
-    if (confirm("Play again?")) {
-    alert("Yay!");
-    playerCount = 0;
-    computerCount = 0;
-    game();
-} else {
-    alert("K, bye!");
-}
+//     if (confirm("Play again?")) {
+//     alert("Yay!");
+//     playerCount = 0;
+//     computerCount = 0;
+//     game();
+// } else {
+//     alert("K, bye!");
+//   }
+// }
 
-}
 
-console.log(game());
+
+//console.log(game());

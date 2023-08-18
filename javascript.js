@@ -1,24 +1,32 @@
 
 let playerCount = 0;
 let computerCount = 0;
-let playerSelection = "";
+let playerChoice = "a";
 
 //Get player selection from buttons
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-    button.addEventListener("click", getPlayerChoice);
+buttons.forEach((button) => {    
+    button.addEventListener("click", function (e) {
+        playerChoice = e.target.id
+        console.log(playerChoice)
+        playRound(playerChoice, getComputerChoice())
+    });
+    
 });
 
-function getPlayerChoice(e) {
-  playerSelection = e.target.id; 
-  alert(playerSelection)
-  }
+// function getPlayerChoice(e) {
+//   alert("Please click a button.");
+//   buttons.forEach((button) => {    
+//      button.addEventListener("click", () => e.target.id);}
+//     ); 
+// }
 
 //Get computer choice  
 
 function getComputerChoice() {
-    let randomChoice = Math.floor(Math.random() * 3) + 1;
+    
+        let randomChoice = Math.floor(Math.random() * 3) + 1;
     switch(randomChoice) {
         case 1:
             return "Rock!";
@@ -31,8 +39,10 @@ function getComputerChoice() {
             break;
         default:
             return "I don't feel like playing :/"
-        }
-}
+        } 
+    } 
+    
+
 
 //The function to play one round of the game
 
@@ -75,14 +85,19 @@ function playRound(playerSelection, computerSelection) {
             result = "You win! Scissors beat Paper!";
         }
     }
-
+    
+    console.log(computerSelection)
     console.log(result);
+    
 }
 
-function game() {
-
-    //  while(playerCount < 5 && computerCount < 5) {
-     playRound(getPlayerChoice, getComputerChoice());
+// function game() {
+    
+//     //   while(playerCount < 5 && computerCount < 5) {
+    
+//         playRound(playerChoice, getComputerChoice());  
+//         console.log(playerChoice);
+        
     //}
 
     // if(playerCount > computerCount) {
@@ -101,7 +116,7 @@ function game() {
     // } else {
     // alert("K, bye!");
     // }
-}
+//}
 
 
-console.log(game());
+

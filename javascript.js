@@ -1,26 +1,27 @@
 
 let playerCount = 0;
 let computerCount = 0;
-let playerChoice = "a";
+let playerChoice = "";
+
+//Select HTML elements
+
+let div = document.getElementById("results-div");
+let body = document.querySelector("body");
+div.style.cssText = "background-color: pink; font-size: 18px; border: 4px solid gray; color: dark-gray; padding: 10px; text-align: center; width: 300px; height: 200px";
+body.appendChild(div);
 
 //Get player selection from buttons
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {    
     button.addEventListener("click", function (e) {
-        playerChoice = e.target.id
+        playerChoice = e.target.id;
         console.log(playerChoice)
         playRound(playerChoice, getComputerChoice())
     });
     
 });
 
-// function getPlayerChoice(e) {
-//   alert("Please click a button.");
-//   buttons.forEach((button) => {    
-//      button.addEventListener("click", () => e.target.id);}
-//     ); 
-// }
 
 //Get computer choice  
 
@@ -42,7 +43,6 @@ function getComputerChoice() {
         } 
     } 
     
-
 
 //The function to play one round of the game
 
@@ -87,13 +87,15 @@ function playRound(playerSelection, computerSelection) {
     }
     
     console.log(computerSelection)
-    console.log(result);
+    div.innerText = `Computer choice: ${computerSelection} 
+    ${result}`;
+    
     
 }
 
 // function game() {
     
-//     //   while(playerCount < 5 && computerCount < 5) {
+//       while(playerCount < 5 && computerCount < 5) {
     
 //         playRound(playerChoice, getComputerChoice());  
 //         console.log(playerChoice);
@@ -117,6 +119,5 @@ function playRound(playerSelection, computerSelection) {
     // alert("K, bye!");
     // }
 //}
-
 
 

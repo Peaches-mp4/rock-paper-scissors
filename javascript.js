@@ -86,38 +86,39 @@ function playRound(playerSelection, computerSelection) {
         }
     }
     
-    console.log(computerSelection)
     div.innerText = `Computer choice: ${computerSelection} 
     ${result}`;
-    
+
+    if(playerCount == 5 || computerCount == 5) {
+        if(playerCount > computerCount) {
+                div.innerText = `You won! The score is...
+                You: ${playerCount} | Computer: ${computerCount}`;
+                // setTimeout(playAgain(), 3000)
+
+        } else if (computerCount > playerCount) {
+            div.innerText = `You lost! The score is... 
+            You: ${playerCount} | Computer: ${computerCount}`;
+            // setTimeout(playAgain(), 3000)
+            } 
+    }
+
+    function playAgain() {
+        if (confirm("Play again?")) {
+            alert("Yay!");
+            playerCount = 0;
+            computerCount = 0;
+            } else {
+            alert("K, bye!");
+            }
+    }
+        
+//playAgain displays before the final score. Probala sam da stavim u funkciju ali i dalje iskace pre
+        
+
     
 }
-
-// function game() {
     
-//       while(playerCount < 5 && computerCount < 5) {
-    
-//         playRound(playerChoice, getComputerChoice());  
-//         console.log(playerChoice);
-        
-    //}
 
-    // if(playerCount > computerCount) {
-    //     console.log(`You won! The score is...You: ${playerCount} | Computer: ${computerCount}`);
-    // } else {
-    //     console.log(`You lost! The score is... You: ${playerCount} | Computer: ${computerCount}`); 
 
-        
-    // }
-
-    // if (confirm("Play again?")) {
-    // alert("Yay!");
-    // playerCount = 0;
-    // computerCount = 0;
-    // game();
-    // } else {
-    // alert("K, bye!");
-    // }
-//}
 
 

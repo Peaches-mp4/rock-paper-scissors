@@ -93,29 +93,25 @@ function playRound(playerSelection, computerSelection) {
         if(playerCount > computerCount) {
                 div.innerText = `You won! The score is...
                 You: ${playerCount} | Computer: ${computerCount}`;
-                // setTimeout(playAgain(), 3000)
-
-        } else if (computerCount > playerCount) {
+                setTimeout(playAgain, 2000);
+                
+        } else {
             div.innerText = `You lost! The score is... 
             You: ${playerCount} | Computer: ${computerCount}`;
-            // setTimeout(playAgain(), 3000)
+            setTimeout(playAgain, 2000);
             } 
     }
 
     function playAgain() {
         if (confirm("Play again?")) {
             alert("Yay!");
+            } else {
+            alert("K, bye!");}
             playerCount = 0;
             computerCount = 0;
-            } else {
-            alert("K, bye!");
-            }
+            div.innerText = "";
     }
-        
-//playAgain displays before the final score. Probala sam da stavim u funkciju ali i dalje iskace pre
-        
-
-    
+            
 }
     
 
